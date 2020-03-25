@@ -87,6 +87,9 @@ async def get_roll_history(user, message, after_date=None):
 
     #Filter rolls to be after a certain date
     rolls = [roll for roll in rolls if after_date < roll.created_at]
+
+    #Filter rolls to be only d100
+    rolls = [roll for roll in rolls if roll.dice == 100]
               
     return rolls
 
